@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1671.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Courier; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html style="height:100%;"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;script src="//secure.api.viewer.zmags.com/widgets/iframe.js" type="text/javascript"&gt;&lt;/script&gt;    </span></p>
+<p class="p1"><span class="s1">    &lt;script&gt;</span></p>
+<p class="p1"><span class="s1">        // When the widget's page is turned to, or the window resized, reset the GIF.</span></p>
+<p class="p1"><span class="s1">        var frame = com.zmags.api.widgets.Iframe;</span></p>
+<p class="p1"><span class="s1">        frame.addEventListener(frame.IFRAME_WIDGET_ACTIVATE, function(event){</span></p>
+<p class="p1"><span class="s1">            if(navigator.userAgent.indexOf('MSIE') &gt; -1 || navigator.appVersion.indexOf('Trident/') &gt; 0){ // Detect IE and apply workaround.</span></p>
+<p class="p1"><span class="s1">                document.getElementById('image').src = document.getElementById('image').src.replace(/\?.*$/,"")+"?x="+Math.random();</span></p>
+<p class="p1"><span class="s1">            }</span></p>
+<p class="p1"><span class="s1">            else{ // Behaviour used for all other browsers.</span></p>
+<p class="p1"><span class="s1">                var img_path = document.getElementById('image').src;</span></p>
+<p class="p1"><span class="s1">                document.getElementById('image').src = "";</span></p>
+<p class="p1"><span class="s1">                document.getElementById('image').src = img_path;</span></p>
+<p class="p1"><span class="s1">            }</span></p>
+<p class="p1"><span class="s1">        });</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">        // When the page is resized or reoriented, resize the GIF accordingly.</span></p>
+<p class="p1"><span class="s1">        function size_content(){</span></p>
+<p class="p1"><span class="s1">            var container = document.getElementById('container'),</span></p>
+<p class="p1"><span class="s1">                image = document.getElementById('image'),</span></p>
+<p class="p1"><span class="s1">                ratio = image.naturalHeight/image.naturalWidth;</span></p>
+<p class="p1"><span class="s1">            </span></p>
+<p class="p1"><span class="s1">            var desiredWidth = (window.innerHeight || document.documentElement.clientHeight)/ratio;</span></p>
+<p class="p1"><span class="s1">            if(desiredWidth &lt;= (window.innerWidth || document.documentElement.clientWidth)){</span></p>
+<p class="p1"><span class="s1">                container.style.cssText = "position:fixed; top:0px; left:50%; height:100%;";</span></p>
+<p class="p1"><span class="s1">                container.style.width = String(desiredWidth)+"px";</span></p>
+<p class="p1"><span class="s1">                container.style.marginLeft = String(-0.5*desiredWidth)+"px";</span></p>
+<p class="p1"><span class="s1">            }</span></p>
+<p class="p1"><span class="s1">            else{</span></p>
+<p class="p1"><span class="s1">                var desiredHeight = (window.innerWidth || document.documentElement.clientWidth) * ratio;</span></p>
+<p class="p1"><span class="s1">                container.style.cssText = "position:fixed; top:50%; left:0px; width:100%;";</span></p>
+<p class="p1"><span class="s1">                container.style.height = String(desiredHeight)+"px";</span></p>
+<p class="p1"><span class="s1">                container.style.marginTop = String(-0.5*desiredHeight)+"px";</span></p>
+<p class="p1"><span class="s1">            }</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        window.addEventListener("resize", size_content);</span></p>
+<p class="p1"><span class="s1">        window.addEventListener("orientationchange", size_content);</span></p>
+<p class="p1"><span class="s1">    &lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body onload="size_content();" scroll="no" style="height:100%; margin:0; padding:0;"&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;div id="container" style="position:fixed;"&gt;</span></p>
+<p class="p1"><span class="s1">        &lt;img id="image" style="width:100%;"&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">    </span></p>
+<p class="p1"><span class="s1">    &lt;script&gt;</span></p>
+<p class="p1"><span class="s1">        // Used to get the image path from the URL parameter.</span></p>
+<p class="p1"><span class="s1">        function getUrlVars(name)</span></p>
+<p class="p1"><span class="s1">        {</span></p>
+<p class="p1"><span class="s1">            name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");</span></p>
+<p class="p1"><span class="s1">            var regexS = "[\\?&amp;]"+name+"=([^&amp;#]*)";</span></p>
+<p class="p1"><span class="s1">            var regex = new RegExp(regexS);</span></p>
+<p class="p1"><span class="s1">            var results = regex.exec(window.location.href);</span></p>
+<p class="p1"><span class="s1">            if(results == null)</span></p>
+<p class="p1"><span class="s1">                return "";</span></p>
+<p class="p1"><span class="s1">            else</span></p>
+<p class="p1"><span class="s1">                return results[1];</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        document.getElementById('image').src = getUrlVars('img_url');</span></p>
+<p class="p1"><span class="s1">    &lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
